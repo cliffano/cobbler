@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add .ansible and .git to yamllint ignore list
+
+### Changed
+- Upgrade Python deps to latest
+
+### Fixed
+- Fix missing header separator on yamllint config
+
 ## 0.10.0 - 2025-10-11
 ### Added
 - Initial version
