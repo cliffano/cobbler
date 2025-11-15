@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Removed
+- Remove accidentally included x-* target
+
 ## 1.0.0 - 2025-11-15
 ### Added
 - Add .ansible, .git, .env to ansible-lint and yamllint ignore list
