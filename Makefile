@@ -6,6 +6,7 @@ clean:
 
 lint:
 	checkmake src/Makefile-mdh
+	find . -type f -name "*.json" | while IFS= read -r file; do echo "> $$file"; python3 -m json.tool "$$file"; done
 
 test:
 	cd examples/ansible-role/ && \

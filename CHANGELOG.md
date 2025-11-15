@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ### Added
-- Add .ansible and .git to yamllint ignore list
+- Add .ansible, .git, .env to ansible-lint and yamllint ignore list
+- Add json lint check 
 
 ### Changed
 - Replace molecule lint with ansible-lint and yamllint
