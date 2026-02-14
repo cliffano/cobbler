@@ -4,7 +4,7 @@
 ################################################################
 
 # Cobbler's version number
-COBBLER_VERSION = 1.0.1-pre.0
+COBBLER_VERSION = 2.0.0
 
 $(info ################################################################)
 $(info Building Ansible role using Cobbler:)
