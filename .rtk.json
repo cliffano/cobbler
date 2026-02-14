@@ -1,10 +1,10 @@
 {
   "resources": [
     {
-      "path": "src/Makefile-mdh",
+      "path": "src/Makefile-cobbler",
       "type": "makefile",
       "params": {
-        "variable": "MDH_VERSION"
+        "variable": "COBBLER_VERSION"
       }
     },
     {

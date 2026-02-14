@@ -1,13 +1,13 @@
-<img align="right" src="https://raw.github.com/cliffano/mdh/main/avatar.jpg" alt="Avatar"/>
+<img align="right" src="https://raw.github.com/cliffano/cobbler/main/avatar.jpg" alt="Avatar"/>
 
-[![Build Status](https://github.com/cliffano/mdh/workflows/CI/badge.svg)](https://github.com/cliffano/mdh/actions?query=workflow%3ACI)
-[![Security Status](https://snyk.io/test/github/cliffano/mdh/badge.svg)](https://snyk.io/test/github/cliffano/mdh)
+[![Build Status](https://github.com/cliffano/cobbler/workflows/CI/badge.svg)](https://github.com/cliffano/cobbler/actions?query=workflow%3ACI)
+[![Security Status](https://snyk.io/test/github/cliffano/cobbler/badge.svg)](https://snyk.io/test/github/cliffano/cobbler)
 <br/>
 
-MDHExample
+CobblerExample
 ----------
 
-MDHExample is a Example Ansible Role for MDH .
+CobblerExample is a Example Ansible Role for Cobbler .
 
 Usage
 -----
@@ -21,4 +21,4 @@ Use the role in your playbook:
         ans_transformation: 'upper'
 
       roles:
-        - cliffano.mdhexample
+        - cliffano.cobblerexample

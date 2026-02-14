@@ -3,9 +3,9 @@ dependencies: []
 
 galaxy_info:
   namespace: cliffano
-  role_name: mdhexample
+  role_name: cobblerexample
   author: Cliffano Subagio
-  description: Example Ansible Role for MDH
+  description: Example Ansible Role for Cobbler
   license: "license (MIT)"
   min_ansible_version: 10.3.0
   galaxy_tags:
