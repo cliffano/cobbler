@@ -1,25 +1,22 @@
-<img align="right" src="https://raw.github.com/cliffano/cobbler/master/avatar.jpg" alt="Avatar"/>
+![Avatar](avatar.jpg)
 
 [![Build Status](https://github.com/cliffano/cobbler/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/cliffano/cobbler/actions/workflows/ci-workflow.yaml)
 <br/>
 
-Cobbler
----
+# Cobbler
 
 Cobbler is a Makefile for building Ansible roles.
 It provides utility targets for building, and creating documentation of Ansible roles.
 
 Have a look at [examples/](examples/) for example projects of how Cobbler can be used.
 
-Installation
-------------
+## Installation
 
 1. Download `src/Makefile-cobbler` as the `Makefile` of your project:
     `curl https://raw.githubusercontent.com/cliffano/cobbler/main/src/Makefile-cobbler -o Makefile`
 2. Run the available `Makefile` targets described in [Usage](#usage) section
 
-Usage
------
+## Usage
 
 The following targets are available:
 
@@ -36,8 +33,7 @@ The following targets are available:
 | update-to-main | Update Makefile to the main branch |
 | update-to-version | Update Makefile to the version defined in `TARGET_KNUT_HAUGLAND_VERSION` parameter |
 
-Colophon
---------
+## Colophon
 
 Related Projects:
 
