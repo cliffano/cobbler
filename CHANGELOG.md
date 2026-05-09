@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add JSON and Markdown lint
 - Add deps-extra-apt Makefile target
 - Add test-examples and update-dotfiles Makefile targets
+- Add examples in ansible-role example
 
 ### Changed
 - Update README format to be mdl compliant
