@@ -1,7 +1,6 @@
 ![Avatar](avatar.jpg)
 
 [![Build Status](https://github.com/cliffano/cobbler/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/cliffano/cobbler/actions/workflows/ci-workflow.yaml)
-<br/>
 
 # Cobbler
 

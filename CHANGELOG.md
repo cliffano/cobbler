@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add JSON and Markdown lint
+- Add deps-extra-apt Makefile target
+- Add test-examples and update-dotfiles Makefile targets
+
+### Changed
+- Update README format to be mdl compliant
+
+### Fixed
+- Fix regression of example version following full ci build
+
 ## 2.0.0 - 2026-02-14
 ### Changed
 - Rename MDH to Cobbler
