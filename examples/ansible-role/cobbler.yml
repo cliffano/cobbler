@@ -11,3 +11,4 @@ generator:
     author_email: gepeto@example.com
     github_id: gepeto
     github_repo: cobblerexample
+    github_token_prefix: STUDIO
