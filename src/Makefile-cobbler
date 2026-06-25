@@ -13,6 +13,12 @@ define python_venv
 	. .venv/bin/activate && $(1)
 endef
 
+define run_hook
+	@if [ -f Makefile-extras ] && grep -q "^$(1):" Makefile-extras; then \
+		$(MAKE) -f Makefile-extras $(1); \
+	fi
+endef
+
 ################################################################
 # Base targets
 
@@ -51,6 +57,7 @@ lint:
 	$(call python_venv,yamllint .)
 
 test:
+	$(call run_hook,x-pre-test)
 	$(call python_venv,molecule test)
 
 test-examples:
