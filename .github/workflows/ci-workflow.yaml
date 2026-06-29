@@ -13,7 +13,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.STUDIO_GITHUB_TOKEN }}
       - uses: cliffano/command-docker-action@main
         with:
-          command: 'make deps-extra-apt ci'
+          command: 'make deps ci'
           image: cliffano/studio:2.16.0
           extra_path: '/root/.local/bin:/root/go/bin:/usr/local/go/bin:/usr/local/node/bin'
           shell: bash
