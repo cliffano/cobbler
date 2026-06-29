@@ -6,10 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- Add deps_extra hook to automatically provision extra packages
+
+### Changed
+- Extract common generator vars init to set_generator_vars
+
 ## 2.2.0 - 2026-06-25
 ### Added
 - Add pre and post hook targets support
-- Add GIthub token prefix parameter
+- Add Github token prefix parameter
 
 ## 2.1.0 - 2026-05-09
 ### Added
