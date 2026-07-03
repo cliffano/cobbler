@@ -4,7 +4,7 @@ set -o nounset
 
 cd ../
 . ./.venv/bin/activate
-ansible-galaxy role install littlegodzillalaboratory.caesar3 --force --roles-path stage/test-examples/roles/
+ansible-galaxy role install cliffano.cobblerexample --force --roles-path stage/test-examples/roles/
 ansible-galaxy collection install geerlingguy.mac --force --collections-path stage/test-examples/collections/
 cd examples/
 
