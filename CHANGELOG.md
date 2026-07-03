@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add deps_extra hook to automatically provision extra packages
 - Add deps target
+- Add lint and test reporting
 
 ### Changed
 - Extract common generator vars init to set_generator_vars

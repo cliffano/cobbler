@@ -59,10 +59,8 @@ endef
 # Base targets
 
 # CI target to be executed by CI/CD tool
-ci: clean deps lint test
-
-# All target is just an alias to ci target
-all: clean deps lint test
+all: ci
+ci: clean lint test
 
 # Ensure stage directory exists
 stage:
@@ -78,6 +76,7 @@ rmdeps:
 deps:
 	python3 -m venv .venv
 	$(call python_venv,python3 -m pip install -r requirements.txt)
+	$(call deps_extra)
 
 deps-upgrade:
 	python3 -m venv .venv
@@ -86,7 +85,8 @@ deps-upgrade:
 
 deps-extra-apt:
 	apt-get update
-	apt-get install -y python3-venv
+	apt-get install -y python3-venv 
+	apt-get install -y markdownlint
 
 # Update Makefile to the latest version tag
 update-to-latest: TARGET_COBBLER_VERSION = $(shell curl -s https://api.github.com/repos/cliffano/cobbler/tags | jq -r '.[0].name')
@@ -126,11 +126,15 @@ update-dotfiles: stage
 
 lint:
 	$(call python_venv,ansible-lint -v .)
+	mkdir -p docs/lint/ansible-lint/
+	$(call python_venv,ansible-lint -f md . > docs/lint/ansible-lint/report.md)
 	$(call python_venv,yamllint .)
 
 test:
 	$(call run_hook,x-pre-test)
-	$(call python_venv,molecule test)
+	mkdir -p docs/lint/molecule
+	$(call python_venv,molecule test > docs/lint/molecule/report.txt 2>&1)
+	cat docs/lint/molecule/report.txt
 
 test-examples:
 	mkdir -p stage/test-examples/
