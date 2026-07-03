@@ -124,6 +124,32 @@ update-dotfiles: stage
 	  cp .yamllint ../../../../.yamllint && \
 	  cp .rtk.json ../../../../.rtk.json
 
+# Update partial snippets using the generator-ansible
+$(eval $(call set_generator_vars,update-partials))
+update-partials: stage
+	cd stage/ && \
+	  rm -rf generator-ansible/ && \
+	  git clone https://github.com/cliffano/generator-ansible && \
+	  cd generator-ansible && \
+	  make deps && \
+	  node_modules/.bin/plop $(GENERATOR_COMPONENT) -- \
+	    --project_id "$(GENERATOR_INPUTS_PROJECT_ID)" \
+		--project_name "$(GENERATOR_INPUTS_PROJECT_NAME)" \
+		--project_desc "$(GENERATOR_INPUTS_PROJECT_DESC)" \
+		--author_name "$(GENERATOR_INPUTS_AUTHOR_NAME)" \
+		--author_email "$(GENERATOR_INPUTS_AUTHOR_EMAIL)" \
+		--github_id "$(GENERATOR_INPUTS_GITHUB_ID)" \
+		--github_repo "$(GENERATOR_INPUTS_GITHUB_REPO)" \
+		--github_token_prefix "$(GENERATOR_INPUTS_GITHUB_TOKEN_PREFIX)"
+	for block in AVATAR BADGES BUILD_REPORTS DEVELOPERS_GUIDE; do \
+	  partial_file=$$(printf "%s" "$$block" | tr "A-Z" "a-z"); \
+	  ex -s \
+	    -c "/<!-- BEGIN:$$block -->/+1,/<!-- END:$$block -->/-1d" \
+	    -c "/<!-- BEGIN:$$block -->/r stage/generator-ansible/stage/$(GENERATOR_COMPONENT)-partials/$$partial_file.txt" \
+	    -c 'wq' \
+	    README.md; \
+	done
+
 lint:
 	$(call python_venv,ansible-lint -v .)
 	mkdir -p docs/lint/ansible-lint/
@@ -143,4 +169,4 @@ test-examples:
 	  bash -x "$$f"; \
 	done
 
-.PHONY: $(1) ci all stage clean rmdeps deps deps-upgrade deps-extra-apt lint test test-examples update-to-latest update-to-main update-to-version update-dotfiles
+.PHONY: $(1) ci all stage clean rmdeps deps deps-upgrade deps-extra-apt lint test test-examples update-to-latest update-to-main update-to-version update-dotfiles update-partials
