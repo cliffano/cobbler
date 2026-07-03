@@ -6,27 +6,27 @@
 #
 annotated-types==0.7.0
     # via pydantic
-ansible-compat==26.3.0
+ansible-compat==26.6.0
     # via
     #   -r requirements.in
     #   ansible-lint
     #   molecule
-ansible-core==2.20.5
+ansible-core==2.21.1
     # via
     #   ansible-compat
     #   ansible-lint
     #   molecule
-ansible-lint==26.4.0
+ansible-lint==26.6.0
     # via -r requirements.in
 attrs==26.1.0
     # via
     #   jsonschema
     #   referencing
-black==26.3.1
+black==26.5.1
     # via ansible-lint
-bracex==2.6
+bracex==3.0
     # via wcmatch
-certifi==2026.4.22
+certifi==2026.6.17
     # via requests
 cffi==2.0.0
     # via
@@ -34,13 +34,13 @@ cffi==2.0.0
     #   cryptography
 charset-normalizer==3.4.7
     # via requests
-click==8.3.3
+click==8.4.2
     # via
     #   black
     #   molecule
-conflog==2.1.1
+conflog==2.1.2
     # via -r requirements.in
-cryptography==48.0.0
+cryptography==49.0.0
     # via
     #   ansible-core
     #   ansible-lint
@@ -50,9 +50,9 @@ docker==7.1.0
     # via -r requirements.in
 enrich==1.2.7
     # via molecule
-filelock==3.29.0
+filelock==3.29.5
     # via ansible-lint
-idna==3.13
+idna==3.18
     # via requests
 iniconfig==2.3.0
     # via pytest
@@ -75,7 +75,7 @@ mdurl==0.1.2
     # via markdown-it-py
 minecraftverse==1.2.0
     # via -r requirements.in
-molecule==26.4.0
+molecule==26.6.0
     # via -r requirements.in
 mypy-extensions==1.1.0
     # via black
@@ -87,12 +87,12 @@ packaging==26.2
     #   black
     #   molecule
     #   pytest
-pathspec==1.0.4
+pathspec==1.1.1
     # via
     #   ansible-lint
     #   black
     #   yamllint
-platformdirs==4.9.6
+platformdirs==4.10.0
     # via black
 pluggy==1.6.0
     # via
@@ -108,7 +108,7 @@ pygments==2.20.0
     # via
     #   pytest
     #   rich
-pytest==9.0.3
+pytest==9.1.1
     # via
     #   -r requirements.in
     #   pytest-testinfra
@@ -132,7 +132,7 @@ referencing==0.37.0
     #   ansible-lint
     #   jsonschema
     #   jsonschema-specifications
-requests==2.33.1
+requests==2.34.2
     # via docker
 resolvelib==1.2.1
     # via ansible-core
@@ -140,7 +140,7 @@ rich==15.0.0
     # via
     #   enrich
     #   molecule
-rpds-py==0.30.0
+rpds-py==2026.6.3
     # via
     #   jsonschema
     #   referencing
@@ -156,7 +156,7 @@ subprocess-tee==0.4.2
     #   ansible-lint
 toml==0.10.2
     # via conflog
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via
     #   minecraftverse
     #   pydantic
@@ -170,7 +170,7 @@ urllib3==2.7.0
     #   docker
     #   minecraftverse
     #   requests
-wcmatch==10.1
+wcmatch==10.2.1
     # via
     #   ansible-lint
     #   molecule
