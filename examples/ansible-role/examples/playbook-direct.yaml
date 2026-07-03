@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
+- name: CobblerExample playbook direct
+  hosts: localhost
 
   vars:
     ans_reverse: false
