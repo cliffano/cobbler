@@ -6,7 +6,7 @@ cd ../
 . ./.venv/bin/activate
 cd examples/
 
-ansible-galaxy role install ../ --force --roles-path ../stage/test-examples/roles/
+ansible-galaxy role install ${PWD}/../ --force --roles-path ../stage/test-examples/roles/
 
 ansible-playbook -i localhost, -c local playbook-direct.yaml
 ansible-playbook -i localhost, -c local playbook-import.yaml
