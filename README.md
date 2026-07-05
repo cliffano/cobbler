@@ -12,7 +12,9 @@ Have a look at [examples/](examples/) for example projects of how Cobbler can be
 ## Installation
 
 1. Download `src/Makefile-cobbler` as the `Makefile` of your project:
-    `curl https://raw.githubusercontent.com/cliffano/cobbler/main/src/Makefile-cobbler -o Makefile`
+```text
+`curl https://raw.githubusercontent.com/cliffano/cobbler/main/src/Makefile-cobbler -o Makefile`
+```
 2. Create configuration file `cobbler.yml` with properties described in [Configuration](#configuration) section
 3. Run the available `Makefile` targets described in [Usage](#usage) section
 
