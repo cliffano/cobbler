@@ -6,7 +6,9 @@ cd ../
 . ./.venv/bin/activate
 cd examples/
 
-ansible-galaxy role install ${PWD}/../ --force --roles-path ../stage/test-examples/roles/
+mkdir -p ../stage/test-examples/roles/
+rm -rf ../stage/test-examples/roles/cliffano.cobblerexample
+cp -R ${PWD}/../ ../stage/test-examples/roles/cliffano.cobblerexample
 
 ansible-playbook -i localhost, -c local playbook-direct.yaml
 ansible-playbook -i localhost, -c local playbook-import.yaml
