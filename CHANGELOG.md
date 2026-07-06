@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Extract common generator vars init to set_generator_vars
 
+### Fixed
+- Fix local role testing since galaxy install only supports published roles
+
 ## 2.2.0 - 2026-06-25
 ### Added
 - Add pre and post hook targets support
