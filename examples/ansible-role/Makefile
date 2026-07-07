@@ -152,7 +152,7 @@ update-partials: stage
 
 lint:
 	mkdir -p docs/lint/
-	$(call python_venv,ansible-lint tasks/ &> docs/lint/ansible-lint.txt)
+	$(call python_venv,ansible-lint tasks/ > docs/lint/ansible-lint.txt 2>&1)
 	$(call python_venv,yamllint .)
  
 test:
