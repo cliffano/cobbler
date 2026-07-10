@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Extract common utility functions
+
 ## 2.3.0 - 2026-07-07
 ### Added
 - Add deps_extra hook to automatically provision extra packages
