@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: iamsauravsharma/create-dotenv@v4.0.0
         with:
           file-path: '/tmp/.env'
