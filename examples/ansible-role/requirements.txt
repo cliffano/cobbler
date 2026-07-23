@@ -11,7 +11,7 @@ ansible-compat==26.6.0
     #   -r requirements.in
     #   ansible-lint
     #   molecule
-ansible-core==2.21.1
+ansible-core==2.21.2
     # via
     #   ansible-compat
     #   ansible-lint
@@ -24,15 +24,15 @@ attrs==26.1.0
     #   referencing
 black==26.5.1
     # via ansible-lint
-bracex==3.0
+bracex==3.0.1
     # via wcmatch
-certifi==2026.6.17
+certifi==2026.7.22
     # via requests
-cffi==2.0.0
+cffi==2.1.0
     # via
     #   ansible-lint
     #   cryptography
-charset-normalizer==3.4.7
+charset-normalizer==3.4.9
     # via requests
 click==8.4.2
     # via
@@ -46,11 +46,11 @@ cryptography==49.0.0
     #   ansible-lint
 distro==1.9.0
     # via ansible-lint
-docker==7.1.0
+docker==7.2.0
     # via -r requirements.in
 enrich==1.2.7
     # via molecule
-filelock==3.29.5
+filelock==3.32.0
     # via ansible-lint
 idna==3.18
     # via requests
@@ -92,7 +92,7 @@ pathspec==1.1.1
     #   ansible-lint
     #   black
     #   yamllint
-platformdirs==4.10.0
+platformdirs==4.11.0
     # via black
 pluggy==1.6.0
     # via
@@ -170,7 +170,7 @@ urllib3==2.7.0
     #   docker
     #   minecraftverse
     #   requests
-wcmatch==10.2.1
+wcmatch==11.0
     # via
     #   ansible-lint
     #   molecule
