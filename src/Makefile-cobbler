@@ -28,7 +28,89 @@ define python_venv
 endef
 
 ################################################################
+# Base targets
+
+# CI target to be executed by CI/CD tool
+all: ci
+ci: clean lint test
+
+# Ensure stage directory exists
+stage:
+	mkdir -p stage
+
+# Remove all temporary (staged, generated, cached) files
+clean:
+	rm -rf stage/
+
+################################################################
+# Dependencies targets
+
+rmdeps:
+	rm -rf .venv/
+
+deps:
+	python3 -m venv .venv
+	$(call python_venv,python3 -m pip install -r requirements.txt)
+	$(call deps_extra)
+
+deps-upgrade:
+	python3 -m venv .venv
+	$(call python_venv,python3 -m pip install -r requirements-dev.txt)
+	$(call python_venv,pip-compile --upgrade)
+
+deps-extra-apt:
+	apt-get update
+	apt-get install -y python3-venv 
+	apt-get install -y markdownlint
+
+################################################################
+# Test targets
+
+lint:
+	mkdir -p docs/lint/
+	$(call python_venv,ansible-lint tasks/ &> docs/lint/ansible-lint.txt)
+	$(call python_venv,yamllint .)
+ 
+test:
+	$(call run_hook,x-pre-test)
+	mkdir -p docs/test/
+	$(call python_venv,molecule test > docs/test/molecule.txt)
+
+test-examples:
+	mkdir -p stage/test-examples/
+	cd examples && \
+	for f in *.sh; do \
+	  bash -x "$$f"; \
+	done
+
+################################################################
+# Update targets
+
+# Update Makefile to the latest version tag
+update-to-latest: TARGET_COBBLER_VERSION = $(shell curl -s https://api.github.com/repos/cliffano/cobbler/tags | jq -r '.[0].name')
+update-to-latest: update-to-version
+
+# Update Makefile to the main branch
+update-to-main:
+	curl https://raw.githubusercontent.com/cliffano/cobbler/main/src/Makefile-cobbler -o Makefile
+
+# Update Makefile to the version defined in TARGET_COBBLER_VERSION parameter
+update-to-version:
+	curl https://raw.githubusercontent.com/cliffano/cobbler/$(TARGET_COBBLER_VERSION)/src/Makefile-cobbler -o Makefile
+
+# Update dotfiles using the generator-ansible
+$(eval $(call set_generator_vars,update-dotfiles,cobbler))
+update-dotfiles: stage
+	$(call update_dotfiles_from_generator,ansible,.github/. .ansible-lint .gitignore .yamllint .rtk.json AGENTS.md)
+
+# Update partial snippets using the generator-ansible
+$(eval $(call set_generator_vars,update-partials,cobbler))
+update-partials: stage
+	$(call update_partials_from_generator,ansible,AVATAR BADGES BUILD_REPORTS DEVELOPERS_GUIDE)
+
+################################################################
 # MAKE IT SO - Utility functions
+################################################################
 
 define run_hook
 	@if [ -f Makefile-extras ] && grep -q "^$(1):" Makefile-extras; then \
@@ -108,75 +190,5 @@ define update_partials_from_generator
 endef
 
 ################################################################
-# Base targets
-
-# CI target to be executed by CI/CD tool
-all: ci
-ci: clean lint test
-
-# Ensure stage directory exists
-stage:
-	mkdir -p stage
-
-# Remove all temporary (staged, generated, cached) files
-clean:
-	rm -rf stage/
-
-rmdeps:
-	rm -rf .venv/
-
-deps:
-	python3 -m venv .venv
-	$(call python_venv,python3 -m pip install -r requirements.txt)
-	$(call deps_extra)
-
-deps-upgrade:
-	python3 -m venv .venv
-	$(call python_venv,python3 -m pip install -r requirements-dev.txt)
-	$(call python_venv,pip-compile --upgrade)
-
-deps-extra-apt:
-	apt-get update
-	apt-get install -y python3-venv 
-	apt-get install -y markdownlint
-
-# Update Makefile to the latest version tag
-update-to-latest: TARGET_COBBLER_VERSION = $(shell curl -s https://api.github.com/repos/cliffano/cobbler/tags | jq -r '.[0].name')
-update-to-latest: update-to-version
-
-# Update Makefile to the main branch
-update-to-main:
-	curl https://raw.githubusercontent.com/cliffano/cobbler/main/src/Makefile-cobbler -o Makefile
-
-# Update Makefile to the version defined in TARGET_COBBLER_VERSION parameter
-update-to-version:
-	curl https://raw.githubusercontent.com/cliffano/cobbler/$(TARGET_COBBLER_VERSION)/src/Makefile-cobbler -o Makefile
-
-# Update dotfiles using the generator-ansible
-$(eval $(call set_generator_vars,update-dotfiles,cobbler))
-update-dotfiles: stage
-	$(call update_dotfiles_from_generator,ansible,.github/. .ansible-lint .gitignore .yamllint .rtk.json AGENTS.md)
-
-# Update partial snippets using the generator-ansible
-$(eval $(call set_generator_vars,update-partials,cobbler))
-update-partials: stage
-	$(call update_partials_from_generator,ansible,AVATAR BADGES BUILD_REPORTS DEVELOPERS_GUIDE)
-
-lint:
-	mkdir -p docs/lint/
-	$(call python_venv,ansible-lint tasks/ &> docs/lint/ansible-lint.txt)
-	$(call python_venv,yamllint .)
- 
-test:
-	$(call run_hook,x-pre-test)
-	mkdir -p docs/test/
-	$(call python_venv,molecule test > docs/test/molecule.txt)
-
-test-examples:
-	mkdir -p stage/test-examples/
-	cd examples && \
-	for f in *.sh; do \
-	  bash -x "$$f"; \
-	done
 
 .PHONY: $(1) ci all stage clean rmdeps deps deps-upgrade deps-extra-apt lint test test-examples update-to-latest update-to-main update-to-version update-dotfiles update-partials
