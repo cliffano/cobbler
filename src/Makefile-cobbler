@@ -67,14 +67,14 @@ deps-extra-apt:
 # Test targets
 
 lint:
-	mkdir -p docs/lint/
-	$(call python_venv,ansible-lint tasks/ &> docs/lint/ansible-lint.txt)
+	mkdir -p stage/gh-pages/lint/
+	$(call python_venv,ansible-lint tasks/ &> stage/gh-pages/lint/ansible-lint.txt)
 	$(call python_venv,yamllint .)
- 
+
 test:
 	$(call run_hook,x-pre-test)
-	mkdir -p docs/test/
-	$(call python_venv,molecule test > docs/test/molecule.txt)
+	mkdir -p stage/gh-pages/test/
+	$(call python_venv,molecule test > stage/gh-pages/test/molecule.txt)
 
 test-examples:
 	mkdir -p stage/test-examples/
