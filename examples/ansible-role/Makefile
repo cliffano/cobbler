@@ -4,7 +4,7 @@
 ################################################################
 
 # Cobbler's version number
-COBBLER_VERSION = 2.4.0
+COBBLER_VERSION = 2.5.0
 
 ################################################################
 # User configuration variables
@@ -155,7 +155,7 @@ update-to-version:
 # Update dotfiles using the generator-ansible
 $(eval $(call set_generator_vars,update-dotfiles,cobbler))
 update-dotfiles: stage
-	$(call update_dotfiles_from_generator,ansible,.github/. .ansible-lint .gitignore .yamllint .rtk.json)
+	$(call update_dotfiles_from_generator,ansible,.github/. .ansible-lint .gitignore .yamllint .rtk.json AGENTS.md)
 
 # Update partial snippets using the generator-ansible
 $(eval $(call set_generator_vars,update-partials,cobbler))
