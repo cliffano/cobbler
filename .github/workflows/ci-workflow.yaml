@@ -14,7 +14,7 @@ jobs:
       - uses: cliffano/command-docker-action@main
         with:
           command: 'make deps ci'
-          image: cliffano/studio:2.16.0
+          image: cliffano/studio:3.2.0
           extra_path: '/root/.local/bin:/root/go/bin:/usr/local/go/bin:/usr/local/node/bin'
           shell: bash
           env_file: '/tmp/.env'
