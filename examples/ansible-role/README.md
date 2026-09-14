@@ -35,7 +35,7 @@ Use the role in your playbook:
 <!-- BEGIN:BUILD_REPORTS -->
 Build reports:
 
-* [Lint report](https://gepeto.github.io/cobblerexample/lint/ansible-lint/report.md)
-* [Test report](https://gepeto.github.io/cobblerexample/test/molecule/report.txt)
+* [Lint report](https://gepeto.github.io/cobblerexample/lint/ansible-lint.txt)
+* [Test report](https://gepeto.github.io/cobblerexample/test/molecule.txt)
 
 <!-- END:BUILD_REPORTS -->
