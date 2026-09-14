@@ -4,7 +4,7 @@
 ################################################################
 
 # Cobbler info
-COBBLER_VERSION = 2.7.0
+COBBLER_VERSION = 2.8.0
 
 UPDATE_GH_ID = cliffano
 UPDATE_MAKEFILE = cobbler
