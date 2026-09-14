@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Parameterise UPDATE_GH_ID
+
 ## 2.6.0 - 2026-07-25
 ### Changed
 - Restructure Makefile-cobbler following MAKEITSO standard
