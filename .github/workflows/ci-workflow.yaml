@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - uses: actions/checkout@v7
       - uses: iamsauravsharma/create-dotenv@v4.0.0
@@ -14,7 +14,7 @@ jobs:
       - uses: cliffano/command-docker-action@main
         with:
           command: 'make deps ci'
-          image: cliffano/studio:3.2.0
+          image: cliffano/studio:4.0.0
           extra_path: '/root/.local/bin:/root/go/bin:/usr/local/go/bin:/usr/local/node/bin'
           shell: bash
           env_file: '/tmp/.env'
