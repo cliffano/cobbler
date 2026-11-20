@@ -1,6 +1,7 @@
 ![Avatar](avatar.jpg)
 
 [![Build Status](https://github.com/cliffano/cobbler/actions/workflows/ci-workflow.yaml/badge.svg)](https://github.com/cliffano/cobbler/actions/workflows/ci-workflow.yaml)
+[![Code Scanning Status](https://github.com/cliffano/cobbler/workflows/CodeQL/badge.svg)](https://github.com/cliffano/cobbler/actions?query=workflow%3ACodeQL)
 
 # Cobbler
 
